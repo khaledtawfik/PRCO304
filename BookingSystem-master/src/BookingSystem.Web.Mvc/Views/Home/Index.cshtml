@@ -1,0 +1,79 @@
+﻿@using BookingSystem.Web.Startup
+@{
+    ViewBag.Title = L("HomePage");
+    ViewBag.CurrentPageName = AppPageNames.Common.Home;
+}
+@section scripts
+{
+    <environment names="Development">
+        <script src="~/libs/chartjs/dist/Chart.js" asp-append-version="true"></script>
+        <script src="~/view-resources/Views/Home/Index.js" asp-append-version="true"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/view-resources/Views/_Bundles/home-index.min.js" asp-append-version="true"></script>
+    </environment>
+}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h1 class="m-0 text-dark">@L("HomePage")</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header border-transparent">
+                        <h3 class="card-title">Today Flights</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table id="FlightsTable" class="table m-0 nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>@L("Actions")</th>
+                                        <th>@L("Status")</th>
+                                        <th>@L("FlightNumber")</th>
+                                        <th>@L("LocationOfDeparture")</th>
+                                        <th>@L("LocationOfArrival")</th>
+                                        <th>@L("DepartureDate")</th>
+                                        <th>@L("ArrivalDate")</th>
+                                        <th>@L("EconomySeats")</th>
+                                        <th>@L("BusinessSeats")</th>
+                                        <th>@L("EconomyPrice")</th>
+                                        <th>@L("BusinessPrice")</th>
+                                        <th>@L("Jet")</th>
+                                        <th>@L("BusinessAvailableTickets")</th>
+                                        <th>@L("EconomyAvailableTickets")</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                        <a href="/Flights" class="btn btn-sm btn-secondary float-right">View All Flights</a>
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+    </div>
+</section>
